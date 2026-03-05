@@ -49,6 +49,19 @@ class Prune < Formula
     error_log_path var/"log/prune.error.log"
   end
 
+  def caveats
+    <<~EOS
+      Start Prune:
+        prune
+
+      Then open in your browser:
+        http://localhost:4173
+
+      Or run as a background service:
+        brew services start prune
+    EOS
+  end
+
   test do
     assert_match "v20", shell_output("#{Formula["node@20"].opt_bin}/node -v")
   end
